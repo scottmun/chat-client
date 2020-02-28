@@ -1,0 +1,46 @@
+<header no-border>
+    <title>Live Chat</title>
+</header>
+  
+<div *ngIf="userEnter">
+  Enter your name:
+  <input
+    [(ngModel)]="username"
+    (keyup.enter)="addUser()"
+  />
+
+</div>
+
+
+<div *ngIf="!userEnter">
+  User: <strong>{{username}}</strong><br><br>
+  These are the users online:<br>
+  <strong>
+    <span *ngFor="let user of users">
+      <span
+        *ngIf="user.name != username"
+        (click)="gotoGame(user.name)"
+      >
+        {{user.name}}<br>
+      </span>
+    </span>
+  </strong>
+  <br>Start chatting!
+
+  <p *ngFor="let message of messages">
+    {{message}}
+  </p>
+
+  <footer>
+    <input
+      class="chat-input"
+      placeholder="type message..."
+      [(ngModel)]="message"
+      (keyup.enter)="addChat()"
+    />
+
+    <button class="btn" (click)="addChat()">
+      <i class="fas fa-arrow-alt-circle-right"></i>
+    </button>
+  </footer>
+</div>
