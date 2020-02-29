@@ -45,9 +45,7 @@ export class HomeComponent implements OnInit {
     });
 
     this.chatService.startGames().subscribe(users => {
-      // tslint:disable-next-line: no-string-literal
       if (users['username'] === this.username) {
-        // tslint:disable-next-line: no-string-literal
         this.sessionService.setOpponent(users['opponent']);
         this.gotoTicTacToe();
       }
