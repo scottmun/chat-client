@@ -16,10 +16,10 @@ export class SessionService {
         }
 
         setOpponent(opponent: string) {
-            localStorage.setItem('opponent', opponent);
+            sessionStorage.setItem('opponent', opponent);
         }
 
         getOpponent(): string {
-            return localStorage.getItem('opponent');
+            return sessionStorage.getItem('opponent');
         }
 }
