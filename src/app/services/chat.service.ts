@@ -34,8 +34,4 @@ export class ChatService {
     gotoGame(username: string, opponent: string) {
         return this.socket.emit('start-tictactoe', {username, opponent});
     }
-
-    getOpponent(user: string): string {
-        return this.opponent;
-    }
 }
