@@ -5,8 +5,6 @@ import { Socket } from 'ngx-socket-io';
   providedIn: 'root'
 })
 export class ChatService {
-    public opponent: string;
-
     constructor(private socket: Socket) {}
 
     addUser(name: string) {
@@ -34,7 +32,6 @@ export class ChatService {
     }
 
     gotoGame(username: string, opponent: string) {
-        this.opponent = opponent;
         return this.socket.emit('start-tictactoe', {username, opponent});
     }
 

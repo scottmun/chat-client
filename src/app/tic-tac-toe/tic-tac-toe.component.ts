@@ -16,10 +16,9 @@ export class TicTacToeComponent implements OnInit {
     private sessionService: SessionService
   ) {
     this.user = sessionService.getUser();
-    this.opponent = chatService.getOpponent(this.user);
+    this.opponent = sessionService.getOpponent();
   }
 
   ngOnInit() {
   }
-
 }

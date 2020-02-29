@@ -45,11 +45,10 @@ export class HomeComponent implements OnInit {
     });
 
     this.chatService.startGames().subscribe(users => {
-      console.log('users: ', users);
       // tslint:disable-next-line: no-string-literal
       if (users['username'] === this.username) {
         // tslint:disable-next-line: no-string-literal
-        this.chatService.opponent = users['opponent'];
+        this.sessionService.setOpponent(users['opponent']);
         this.gotoTicTacToe();
       }
     });
@@ -69,6 +68,7 @@ export class HomeComponent implements OnInit {
 
   gotoGame(user: string) {
     this.gotoTicTacToe();
+    this.sessionService.setOpponent(user);
     this.chatService.gotoGame(this.username, user);
   }
 
